@@ -418,8 +418,8 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Jetpack compatibility file.
+ * Update client
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+if( ! class_exists('UpdateClient')) {
+	require_once plugin_dir_path( __FILE__ ) . 'assets/update-client/UpdateClient.class.php';
 }
