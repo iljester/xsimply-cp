@@ -108,19 +108,6 @@ if ( ! function_exists( 'xsimply_setup' ) ) :
 		add_editor_style( trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css' );
 		
 		/**
-		 * These supports are only raccomended.
-		 */
-			
-		// responsive embeds
-		add_theme_support( "responsive-embeds" );
-
-		// align wide
-		add_theme_support( "align-wide" );
-
-		// block styles
-		add_theme_support( "wp-block-styles" );
-		
-		/**
 		 * Add Custom font to editor style
 		 */
 		$selected_font = get_theme_mod( 'xsimply_typography_choices', 'titillium_web' );
