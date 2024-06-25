@@ -25,6 +25,7 @@ function xsimply_fonts() {
 		'noto_sans_jp'	 => 'Noto Sans JP',
 		'nunito'		 => 'Nunito',
 		'open_sans' 	 => 'Open Sans',
+		'playfair_display' => 'Playfair Display',
 		'poppins'		 => 'Poppins',
 		'pt_sans'		 => 'PT Sans',
 		'quicksand'		 => 'Quicksand',
@@ -33,8 +34,9 @@ function xsimply_fonts() {
 		'roboto'		 => 'Roboto',
 		'roboto_slab'	 => 'Roboto Slab',
 		'roboto_condensed' => 'Roboto Condensed',
-		'source-serif-pro' => 'Source Serif Pro',
-		'system_ui' 	 => 'System UI' 
+		'source_serif_pro' => 'Source Serif Pro',
+		'system_ui' 	 => 'System UI',
+		'ubuntu'		 => 'Ubuntu' 
 	);
 	return $fonts;
 
