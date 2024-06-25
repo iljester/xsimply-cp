@@ -1,2 +1,2 @@
-# xsimply-cp
+# XSimply
 XSimply Theme for ClassicPress
