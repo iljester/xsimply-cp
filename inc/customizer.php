@@ -48,11 +48,11 @@ function xsimply_fonts() {
 function xsimply_color_scheme() {
 	
 	$schemes = array(
-		'light' => __( 'Light (default)', XSIMPLY_CP),
-		'metal' => __( 'Metal', XSIMPLY_CP ),
-		'pig'	=> __( 'Piggy', XSIMPLY_CP ),
-		'sea' 	=> __( 'Sea', XSIMPLY_CP ),
-		'night' => __( 'Night', XSIMPLY_CP )
+		'light' => __( 'Light (default)', 'xsimply-cp'),
+		'metal' => __( 'Metal', 'xsimply-cp' ),
+		'pig'	=> __( 'Piggy', 'xsimply-cp' ),
+		'sea' 	=> __( 'Sea', 'xsimply-cp' ),
+		'night' => __( 'Night', 'xsimply-cp' )
 	);
 	return $schemes;
 }
@@ -88,8 +88,8 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_theme_color', array(
-		'label'      => __('Theme Colors', XSIMPLY_CP),
-		'description' => __('Note. If you are using a background image, use the most suitable color scheme or set 1 in page opacity (background image section).', XSIMPLY_CP),
+		'label'      => __('Theme Colors', 'xsimply-cp'),
+		'description' => __('Note. If you are using a background image, use the most suitable color scheme or set 1 in page opacity (background image section).', 'xsimply-cp'),
 		'section'    => 'colors',
 		'settings'   => 'xsimply_theme_color',
 		'type'       => 'radio',
@@ -105,8 +105,8 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control('xsimply_customize_active', array(
-		'label'      => __('Allow customization below', XSIMPLY_CP),
-		'description' => __('If set, you can customize header text and background color', XSIMPLY_CP),
+		'label'      => __('Allow customization below', 'xsimply-cp'),
+		'description' => __('If set, you can customize header text and background color', 'xsimply-cp'),
 		'section'    => 'colors',
 		'settings'   => 'xsimply_customize_active',
 		'type'       => 'checkbox', 
@@ -121,8 +121,8 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_opacity', array(
-		'label'      => __('Page Opacity', XSIMPLY_CP),
-		'description' => __('Default 0.7. Set 1 for full color without transparency. 0 for full transparency.', XSIMPLY_CP),
+		'label'      => __('Page Opacity', 'xsimply-cp'),
+		'description' => __('Default 0.7. Set 1 for full color without transparency. 0 for full transparency.', 'xsimply-cp'),
 		'section'    => 'background_image',
 		'settings'   => 'xsimply_opacity',
 		'type'       => 'number',
@@ -140,8 +140,8 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_center_image_header', array(
-		'label'      => __('Center Image', XSIMPLY_CP),
-		'description' => __('Center the image if the size is smaller than suggested. No fixed cover.', XSIMPLY_CP),
+		'label'      => __('Center Image', 'xsimply-cp'),
+		'description' => __('Center the image if the size is smaller than suggested. No fixed cover.', 'xsimply-cp'),
 		'section'    => 'header_image',
 		'settings'   => 'xsimply_center_image_header',
 		'type'       => 'checkbox'
@@ -155,7 +155,7 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_bg_header', array(
-		'label'      => __('Background Image Header', XSIMPLY_CP),
+		'label'      => __('Background Image Header', 'xsimply-cp'),
 		'section'    => 'header_image',
 		'settings'   => 'xsimply_bg_header',
 		'type'       => 'checkbox'
@@ -169,15 +169,15 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_fixed_image_header', array(
-		'label'      => __('Fixed Cover', XSIMPLY_CP),
-		'description' => __('Set image header like fixed cover (only with Background Image Header!).', XSIMPLY_CP),
+		'label'      => __('Fixed Cover', 'xsimply-cp'),
+		'description' => __('Set image header like fixed cover (only with Background Image Header!).', 'xsimply-cp'),
 		'section'    => 'header_image',
 		'settings'   => 'xsimply_fixed_image_header',
 		'type'       => 'checkbox'
 	));
 
 	$wp_customize->add_section( 'xsimply_footer', array(
-		'title' => __('Footer', XSIMPLY_CP),
+		'title' => __('Footer', 'xsimply-cp'),
 		'priority'   => 140
 	) );
 
@@ -189,15 +189,45 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_my_site_cp', array(
-		'label'      => __('Site Info', XSIMPLY_CP),
-		'description' => __('Allowed tags: strong, em. Press "Enter" to wrap up. Use {copy} for &copy;, {year} for current year, {blogname} for blog name.', XSIMPLY_CP),
+		'label'      => __('Site Info', 'xsimply-cp'),
+		'description' => __('Allowed tags: strong, em. Press "Enter" to wrap up. Use {copy} for &copy;, {year} for current year, {blogname} for blog name.', 'xsimply-cp'),
 		'section'    => 'xsimply_footer',
 		'settings'   => 'xsimply_my_site_cp',
 		'type'       => 'textarea'
 	));
 
+	$wp_customize->add_setting('xsimply_hide_cms_credits', array(
+		'default'           => 0,
+		'sanitize_callback' => 'absint',
+		'transport'         => 'refresh',
+		'capability'        => 'edit_theme_options',
+	));
+
+	$wp_customize->add_control('xsimply_hide_cms_credits', array(
+		'label'      => __('Hide ClassicPress credits', 'xsimply-cp'),
+		'description' => sprintf( __('You can support the development and diffusion of %s by leaving credits.', 'xsimply-cp' ), 'ClassicPress'),
+		'section'    => 'xsimply_footer',
+		'settings'   => 'xsimply_hide_cms_credits',
+		'type'       => 'checkbox'
+	));
+
+	$wp_customize->add_setting('xsimply_hide_theme_credits', array(
+		'default'           => 0,
+		'sanitize_callback' => 'absint',
+		'transport'         => 'refresh',
+		'capability'        => 'edit_theme_options',
+	));
+
+	$wp_customize->add_control('xsimply_hide_theme_credits', array(
+		'label'      => __('Hide Theme credits', 'xsimply-cp'),
+		'description' => sprintf( __('You can support the development and diffusion of %s by leaving credits.', 'xsimply-cp' ), 'XSimply CP'),
+		'section'    => 'xsimply_footer',
+		'settings'   => 'xsimply_hide_theme_credits',
+		'type'       => 'checkbox'
+	));
+
 	$wp_customize->add_section('xsimply_layout', array(
-		'title' => __( 'Layout', XSIMPLY_CP ),
+		'title' => __( 'Layout', 'xsimply-cp' ),
 		'priority' => 30
 	));
 	
@@ -209,15 +239,15 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_theme_layout_wide', array(
-		'label'      => __('Layout Wide', XSIMPLY_CP),
-		'description' => __('Set layout wide', XSIMPLY_CP),
+		'label'      => __('Layout Wide', 'xsimply-cp'),
+		'description' => __('Set layout wide', 'xsimply-cp'),
 		'section'    => 'xsimply_layout',
 		'settings'   => 'xsimply_theme_layout_wide',
 		'type'       => 'radio',
 		'choices'     => array(
-			'thin' => __('Thin', XSIMPLY_CP ),
-			'normal' => __('Normal (default)', XSIMPLY_CP),
-			'full' => __( 'Full', XSIMPLY_CP)
+			'thin' => __('Thin', 'xsimply-cp' ),
+			'normal' => __('Normal (default)', 'xsimply-cp'),
+			'full' => __( 'Full', 'xsimply-cp')
 		),
 		'priority' => 1
 	));
@@ -230,15 +260,15 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_theme_layout_align', array(
-		'label'      => __('Layout Alignment', XSIMPLY_CP),
-		'description' => __('Set layout alignment (default: "Center").', XSIMPLY_CP),
+		'label'      => __('Layout Alignment', 'xsimply-cp'),
+		'description' => __('Set layout alignment (default: "Center").', 'xsimply-cp'),
 		'section'    => 'xsimply_layout',
 		'settings'   => 'xsimply_theme_layout_align',
 		'type'       => 'select',
 		'choices'     => array(
-			'left' => __('Left', XSIMPLY_CP),
-			'center' => __( 'Center', XSIMPLY_CP),
-			'right' => __( 'Right', XSIMPLY_CP )
+			'left' => __('Left', 'xsimply-cp'),
+			'center' => __( 'Center', 'xsimply-cp'),
+			'right' => __( 'Right', 'xsimply-cp' )
 		),
 		'priority' => 1
 	));
@@ -251,21 +281,21 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_theme_layout_menu_align', array(
-		'label'      => __('Menu Alignment', XSIMPLY_CP),
-		'description' => __('Set menu alignment (default: "Left").', XSIMPLY_CP),
+		'label'      => __('Menu Alignment', 'xsimply-cp'),
+		'description' => __('Set menu alignment (default: "Left").', 'xsimply-cp'),
 		'section'    => 'xsimply_layout',
 		'settings'   => 'xsimply_theme_layout_menu_align',
 		'type'       => 'select',
 		'choices'     => array(
-			'left' => __('Left', XSIMPLY_CP),
-			'center' => __( 'Center', XSIMPLY_CP),
-			'right' => __( 'Right', XSIMPLY_CP )
+			'left' => __('Left', 'xsimply-cp'),
+			'center' => __( 'Center', 'xsimply-cp'),
+			'right' => __( 'Right', 'xsimply-cp' )
 		),
 		'priority' => 1
 	));
 	
 	$wp_customize->add_section('xsimply_typography', array(
-		'title' => __( 'Typography', XSIMPLY_CP ),
+		'title' => __( 'Typography', 'xsimply-cp' ),
 		'priority' => 50
 	));
 	
@@ -277,8 +307,8 @@ function xsimply_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('xsimply_typography_choices', array(
-		'label'      => __('Font', XSIMPLY_CP),
-		'description' => __('Choose your font (default: Titillium Web). Note: System Ui is the font used in the user\'s operating system/browser.', XSIMPLY_CP),
+		'label'      => __('Font', 'xsimply-cp'),
+		'description' => __('Choose your font (default: Titillium Web). Note: System Ui is the font used in the user\'s operating system/browser.', 'xsimply-cp'),
 		'section'    => 'xsimply_typography',
 		'settings'   => 'xsimply_typography_choices',
 		'type'       => 'select',
@@ -396,7 +426,7 @@ function xsimply_header_customizer_scripts() {
 						code,
 						{
 							type: 'info',
-							message: '<?php echo esc_html_e( 'Selecting "Thin", the sidebar will be moved to the footer', XSIMPLY_CP); ?>'
+							message: '<?php echo esc_html_e( 'Selecting "Thin", the sidebar will be moved to the footer', 'xsimply-cp'); ?>'
 						}
 					) );
 				} else {

@@ -1,5 +1,15 @@
 # CHANGELOG XSIMPLY CP
 
+## Version 1.2.0
+*Released 26/06/2024*
+- Add theme options to hide footer credits for ClassicPress and Theme
+- Update translate for italian language
+- Remove constant XSIMPLY_CP and restore string xsimply-cp domain translation
+- Fix incorrect domain translation in style.css
+- Add function_exists condition for xsimply_display_classes_for_header()
+- Add constant for cms credits XSIMPLY_CMS_LINK
+- Edit info credits in style.css about XSimply CP
+
 ## Version 1.1.1
 *Released 26/06/2024*
 - Add info thirdy part assets in README.md

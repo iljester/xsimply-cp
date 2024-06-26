@@ -19,7 +19,7 @@ get_header();
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', XSIMPLY_CP ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'xsimply-cp' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
@@ -39,9 +39,9 @@ get_header();
 			endwhile;
 
 			the_posts_pagination( array(
-				'prev_text' => '&larr; <span class="screen-reader-text">' . __( 'Previous Page', XSIMPLY_CP ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next Page', XSIMPLY_CP ) . '</span> &rarr;',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', XSIMPLY_CP ) . ' </span>',
+				'prev_text' => '&larr; <span class="screen-reader-text">' . __( 'Previous Page', 'xsimply-cp' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next Page', 'xsimply-cp' ) . '</span> &rarr;',
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'xsimply-cp' ) . ' </span>',
 			) );
 
 		else :
