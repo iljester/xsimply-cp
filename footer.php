@@ -17,7 +17,7 @@
 		<div class="search-box"> 
 			<?php get_search_form(); ?>
 		</div>
-		<?php xsimply_display_credits(); ?><!-- .site-info -->
+		<?php xsimply_display_credits(); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

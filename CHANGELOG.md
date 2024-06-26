@@ -1,5 +1,9 @@
 # CHANGELOG XSIMPLY CP
 
+## Version 1.2.1
+*Released 26/06/2024*
+- Remove notice < !-- .site-info -- > from footer, because generate a duplicate
+
 ## Version 1.2.0
 *Released 26/06/2024*
 - Add theme options to hide footer credits for ClassicPress and Theme
