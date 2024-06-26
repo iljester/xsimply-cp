@@ -17,7 +17,7 @@ define( 'XSIMPLY_AUTHOR_SITE', 'https://www.iljester.com' );
  * Define version
  * For any use
  */
-define('XSIMPLY_VER', '1.1.0');
+define('XSIMPLY_VER', '1.1.1');
 
 /**
  * Define domain

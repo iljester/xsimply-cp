@@ -8,13 +8,19 @@ Available localization: italian
 
 ## Compatibility
 
-This version of XSimply CP is designed for **ClassicPress**. Although it can also be used on **WordPress**, please use the version designed for WordPress. You can find it in this repository: [XSimply for WordPress]( https://github.com/iljester/xsimply) or in WordPress repository: [XSimply Theme](https://wordpress.org/themes/xsimply/).
+This version of XSimply is designed for **ClassicPress**. Although it can also be used on **WordPress**, please use the version designed for WordPress. You can find it in this repository: [XSimply for WordPress](https://github.com/iljester/xsimply) or in WordPress repository: [XSimply Theme](https://wordpress.org/themes/xsimply/).
 
 ## Installation
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
+
+## Thirdy part assets
+
+XSimply CP uses:
+- Fonts from (Google Fonts)[https://fonts.google.com]. For license, see info on [FAQs](https://developers.google.com/fonts/faq).
+- Update client class from plugin (Update Manager)[https://software.gieffeedizioni.it/plugin/update-manager/], released under GPLv2 license. Author Simone Fioravanti.
 
 ## Frequently Asked Questions
 
