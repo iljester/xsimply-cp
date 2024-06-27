@@ -30,7 +30,7 @@ if ( ! function_exists( 'xsimply_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -48,7 +48,7 @@ if ( ! function_exists( 'xsimply_posted_by' ) ) :
 			. '</span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -65,7 +65,7 @@ if ( ! function_exists( 'xsimply_entry_footer' ) ) :
 			$categories_list  = get_the_category_list( esc_html_x( ', ', 'tags item separator', 'xsimply-cp' ) );
 			if ( $categories_list ) {
 				/* translators: 2: label, list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $categories_label, $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $categories_label, $categories_list ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 			}
 
 			/* translators: used between list items, there is a space after the comma */
@@ -73,7 +73,7 @@ if ( ! function_exists( 'xsimply_entry_footer' ) ) :
 			$tags_list  = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'xsimply-cp' ) );
 			if ( $tags_list ) {
 				/* translators: 2: label, list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $tags_label, $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $tags_label, $tags_list ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 			}
 		}
 
@@ -172,12 +172,12 @@ if( ! function_exists('xsimply_get_my_site_cp') ) :
 			'{copy}', '{year}', '{blogname}'
 		),
 		array( 
-			'&copy;', date('Y'), get_bloginfo('name')
+			'&copy;', gmdate('Y'), get_bloginfo('name')
 		), $site_cp );
 		$filtered = xsimply_html_filter( $string );
 		$output = nl2br( $filtered );
 
-		printf( '<div class="my-site-cp"><p>%s</p></div>', $output );
+		printf( '<div class="my-site-cp"><p>%s</p></div>', $output ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -216,7 +216,7 @@ if ( ! function_exists('xsimply_display_credits') ) :
 				// cms credits
 				if( $cms_credits === false ) :
 				printf( 
-					esc_html__('Powered by %s', 'xsimply-cp' ), '<a href="' . XSIMPLY_CMS_LINK . '">ClassicPress</a>' );
+					esc_html__('Powered by %s', 'xsimply-cp' ), '<a href="' . esc_html( XSIMPLY_CMS_LINK ) . '">ClassicPress</a>' );
 				endif;
 
 				// separator
@@ -227,7 +227,7 @@ if ( ! function_exists('xsimply_display_credits') ) :
 				// theme credits
 				if( $theme_credits === false ) :
 				printf( 
-					esc_html__('Theme %s by Il Jester', 'xsimply-cp' ), '<a href="' . XSIMPLY_THEME_LINK . '">XSimply CP</a>' );
+					esc_html__('Theme %s by Il Jester', 'xsimply-cp' ), '<a href="' . esc_html( XSIMPLY_THEME_LINK ) . '">XSimply CP</a>' );
 				endif;
 				?>
 		</div><!-- .site-info -->

@@ -1,5 +1,9 @@
 # CHANGELOG XSIMPLY CP
 
+## Version 1.2.2
+*Released 27/06/2024*
+- Fix minor bug for security issues
+
 ## Version 1.2.1
 *Released 26/06/2024*
 - Remove notice < !-- .site-info -- > from footer, because generate a duplicate

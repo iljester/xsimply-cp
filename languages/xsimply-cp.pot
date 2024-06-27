@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XSimply CP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 09:15+0000\n"
+"POT-Creation-Date: 2024-06-27 16:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "%1$s %2$s"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:147
 msgid "Add widgets here."
 msgstr ""
 
@@ -97,6 +97,10 @@ msgstr ""
 
 #: inc/customizer.php:172
 msgid "Fixed Cover"
+msgstr ""
+
+#: inc/customizer.php:465
+msgid "Fixed Cover works only background image header!"
 msgstr ""
 
 #: inc/customizer.php:310
@@ -283,7 +287,7 @@ msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:214
+#: inc/template-tags.php:219
 #, php-format
 msgid "Powered by %s"
 msgstr ""
@@ -304,7 +308,7 @@ msgstr ""
 msgid "Previous post:"
 msgstr ""
 
-#: functions.php:62
+#: functions.php:68
 msgid "Primary"
 msgstr ""
 
@@ -349,7 +353,7 @@ msgstr ""
 msgid "Set menu alignment (default: \"Left\")."
 msgstr ""
 
-#: functions.php:139
+#: functions.php:145
 msgid "Sidebar"
 msgstr ""
 
@@ -377,7 +381,7 @@ msgctxt "tags item separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:225
+#: inc/template-tags.php:230
 #, php-format
 msgid "Theme %s by Il Jester"
 msgstr ""
@@ -413,6 +417,14 @@ msgstr ""
 msgid ""
 "XSimply CP is a versatile and light theme, available in different color "
 "schemes"
+msgstr ""
+
+#: inc/customizer.php:485
+msgid "You are trying to use an html tag not allowed!"
+msgstr ""
+
+#: inc/customizer.php:446
+msgid "You can choose a number between 0 and 1. Decimal allowed."
 msgstr ""
 
 #: inc/customizer.php:208 inc/customizer.php:223

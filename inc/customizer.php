@@ -443,7 +443,7 @@ function xsimply_header_customizer_scripts() {
 						code,
 						{
 							type: 'error',
-							message: '<?php echo esc_html_e( "You can choose a number between 0 and 1. Decimal allowed.", "xsimply"); ?>'
+							message: '<?php echo esc_html_e( "You can choose a number between 0 and 1. Decimal allowed.", "xsimply-cp"); ?>'
 						}
 					) );
 				} else {
@@ -462,7 +462,7 @@ function xsimply_header_customizer_scripts() {
 						code,
 						{
 							type: 'warning',
-							message: '<?php echo esc_html_e( "Fixed Cover works only background image header!", "xsimply" ); ?>'
+							message: '<?php echo esc_html_e( "Fixed Cover works only background image header!", "xsimply-cp" ); ?>'
 						}
 					) );
 				} else {
@@ -482,7 +482,7 @@ function xsimply_header_customizer_scripts() {
 						code,
 						{
 							type: 'error',
-							message: '<?php echo esc_html_e( "You are trying to use an html tag not allowed!", "xsimply" ); ?>'
+							message: '<?php echo esc_html_e( "You are trying to use an html tag not allowed!", "xsimply-cp" ); ?>'
 						}
 					) );
 				} else {

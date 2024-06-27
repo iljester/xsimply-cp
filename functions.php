@@ -23,7 +23,7 @@ define('XSIMPLY_CMS_LINK', 'https://classicpress.net/');
  * Define version
  * For any use
  */
-define('XSIMPLY_VER', '1.2.1');
+define('XSIMPLY_VER', '1.2.2');
 
 /**
  * xsimply setup
@@ -358,7 +358,7 @@ function xsimply_inline_css() {
 	if( !empty( $xsimply_css_rules ) ) {
 		$xsimply_css_rules_string = implode( PHP_EOL, $xsimply_css_rules );
 		echo '<style type="text/css" id="xsimply-inline-css">';
-		echo "{$xsimply_css_rules_string}";
+		echo  esc_html( $xsimply_css_rules_string );
 		echo '</style>';
 	}
 }

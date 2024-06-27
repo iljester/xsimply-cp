@@ -39,7 +39,7 @@
 			$xsimply_description = get_bloginfo( 'description', 'display' );
 			if ( $xsimply_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $xsimply_description; /* WPCS: xss ok. */ ?></p>
+				<p class="site-description"><?php echo $xsimply_description; /* phpcs:ignore Standard.Category.SniffName.ErrorCode */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 

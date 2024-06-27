@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: XSimply\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-10 15:33+0000\n"
-"PO-Revision-Date: 2024-06-26 09:19+0000\n"
+"PO-Revision-Date: 2024-06-27 16:37+0000\n"
 "Last-Translator: iljester <muradavi@gmail.com>\n"
 "Language-Team: Italian (Italy)\n"
 "Language: it_IT\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
-#: functions.php:141
+#: functions.php:147
 msgid "Add widgets here."
 msgstr "Aggiungi i widget qui."
 
@@ -107,6 +107,10 @@ msgstr "Modifica <span class=\"screen-reader-text\">%s</span>"
 #: inc/customizer.php:172
 msgid "Fixed Cover"
 msgstr "Cover fissa"
+
+#: inc/customizer.php:465
+msgid "Fixed Cover works only background image header!"
+msgstr "La copertina fissa funziona solo con l'immagine di sfondo dell'header"
 
 #: inc/customizer.php:310
 msgid "Font"
@@ -304,7 +308,7 @@ msgctxt "post date"
 msgid "Posted on %s"
 msgstr "Pubblicato il %s"
 
-#: inc/template-tags.php:214
+#: inc/template-tags.php:219
 #, php-format
 msgid "Powered by %s"
 msgstr "Motorizzato %s"
@@ -325,7 +329,7 @@ msgstr "Post precedente"
 msgid "Previous post:"
 msgstr "Post precedente:"
 
-#: functions.php:62
+#: functions.php:68
 msgid "Primary"
 msgstr "Primario"
 
@@ -376,7 +380,7 @@ msgstr "Imposta larghezza del layout"
 msgid "Set menu alignment (default: \"Left\")."
 msgstr "Imposta l'allineamento del menu (default: \"Sinistra\")"
 
-#: functions.php:139
+#: functions.php:145
 msgid "Sidebar"
 msgstr "Barra Laterale"
 
@@ -406,7 +410,7 @@ msgctxt "tags item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:225
+#: inc/template-tags.php:230
 #, php-format
 msgid "Theme %s by Il Jester"
 msgstr "Tema %s di Il Jester"
@@ -446,6 +450,14 @@ msgid ""
 msgstr ""
 "XSimply CP è un tema versatile e leggero, disponibile in diversi schemi di "
 "colori"
+
+#: inc/customizer.php:485
+msgid "You are trying to use an html tag not allowed!"
+msgstr "Stai cercando di inserire tag html non permessi!"
+
+#: inc/customizer.php:446
+msgid "You can choose a number between 0 and 1. Decimal allowed."
+msgstr "Puoi scegliere un numero tra 0 e 1. I decimali sono permessi."
 
 #: inc/customizer.php:208 inc/customizer.php:223
 #, php-format
