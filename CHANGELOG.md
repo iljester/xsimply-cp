@@ -1,5 +1,9 @@
 # CHANGELOG XSIMPLY CP
 
+## Version 1.2.4
+*Released 28/06/2024*
+- Add escaping function to some variables
+
 ## Version 1.2.3
 *Released 28/06/2024*
 - Fix bugs for security issues, add workflows

@@ -28,7 +28,7 @@ if ( ! function_exists( 'xsimply_posted_on' ) ) :
 			sprintf(
 				/* translators: %s: post date. */
 				esc_html_x( 'Posted on %s', 'post date', 'xsimply-cp' ),
-				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_kses( $time_string, array( 'time' => ['class' => [], 'datetime' => [] ] ) ). '</a>'
 			)
 		);
 
@@ -64,7 +64,7 @@ if ( ! function_exists( 'xsimply_entry_footer' ) ) :
 			$categories_list  = get_the_category_list( esc_html_x( ', ', 'tags item separator', 'xsimply-cp' ) );
 			if ( $categories_list ) {
 				printf( '<span class="cat-links">%s</span>',
-					sprintf( __( '%1$sArchived:%2$s %3$s', 'xsimply-cp'),
+					sprintf( esc_html__( '%1$sArchived:%2$s %3$s', 'xsimply-cp'),
 						'<span class="cat-label">',
 						'</span>',
 						wp_kses( $categories_list, array('a' => ['href' => [], 'rel' => [] ] ) )
@@ -75,7 +75,7 @@ if ( ! function_exists( 'xsimply_entry_footer' ) ) :
 			$tags_list  = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'xsimply-cp' ) );
 			if ( $tags_list ) {
 				printf( '<span class="tags-links">%s</span>',
-					sprintf( __( '%1$sTagged:%2$s %3$s', 'xsimply-cp'),
+					sprintf( esc_html__( '%1$sTagged:%2$s %3$s', 'xsimply-cp'),
 						'<span class="tag-label">',
 						'</span>',
 						wp_kses( $tags_list, array('a' => ['href' => [], 'rel' => [] ] ) ),
@@ -184,7 +184,7 @@ if( ! function_exists('xsimply_get_my_site_cp') ) :
 		), $site_cp );
 
 		printf( '<div class="my-site-cp"><p>%s</p></div>', 
-			nl2br( xsimply_html_filter( $string ) )
+			nl2br( wp_kses( $string, array('strong' => [], 'em' => [] ) ) )
 		);
 	}
 endif;

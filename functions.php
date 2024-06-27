@@ -23,7 +23,7 @@ define('XSIMPLY_CMS_LINK', 'https://classicpress.net/');
  * Define version
  * For any use
  */
-define('XSIMPLY_VER', '1.2.3');
+define('XSIMPLY_VER', '1.2.4');
 
 /**
  * xsimply setup
