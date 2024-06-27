@@ -1,5 +1,9 @@
 # CHANGELOG XSIMPLY CP
 
+## Version 1.2.3
+*Released 28/06/2024*
+- Fix bugs for security issues, add workflows
+
 ## Version 1.2.2
 *Released 27/06/2024*
 - Fix minor bug for security issues

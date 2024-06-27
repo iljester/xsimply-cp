@@ -24,13 +24,13 @@ if ( ! function_exists( 'xsimply_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'xsimply-cp' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		printf( '<span class="posted-on">%s</span>', 
+			sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'Posted on %s', 'post date', 'xsimply-cp' ),
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			)
 		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -40,15 +40,16 @@ if ( ! function_exists( 'xsimply_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function xsimply_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'xsimply-cp' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">'
-			. esc_html( get_the_author() ) . '</a>'
-			. '</span>'
-		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
+		printf( ' <span class="byline">%s</span>', 
+			sprintf(
+				/* translators: %s: post author. */
+				esc_html_x( 'by %s', 'post author', 'xsimply-cp' ),
+				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">'
+				. esc_html( get_the_author() ) . '</a>'
+				. '</span>'
+			)
+		);
 
 	}
 endif;
@@ -60,20 +61,27 @@ if ( ! function_exists( 'xsimply_entry_footer' ) ) :
 	function xsimply_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_label = '<span class="cat-label">' . esc_html__('Archived:', 'xsimply-cp' ) . '</span>';
 			$categories_list  = get_the_category_list( esc_html_x( ', ', 'tags item separator', 'xsimply-cp' ) );
 			if ( $categories_list ) {
-				/* translators: 2: label, list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $categories_label, $categories_list ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
+				printf( '<span class="cat-links">%s</span>',
+					sprintf( __( '%1$sArchived:%2$s %3$s', 'xsimply-cp'),
+						'<span class="cat-label">',
+						'</span>',
+						wp_kses( $categories_list, array('a' => ['href' => [], 'rel' => [] ] ) )
+					)
+				);
 			}
 
-			/* translators: used between list items, there is a space after the comma */
-			$tags_label = '<span class="tag-label">' . esc_html__('Tagged:', 'xsimply-cp' ) . '</span>';
 			$tags_list  = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'xsimply-cp' ) );
 			if ( $tags_list ) {
-				/* translators: 2: label, list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( '%1$s %2$s', 'xsimply-cp' ) . '</span>', $tags_label, $tags_list ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
+				printf( '<span class="tags-links">%s</span>',
+					sprintf( __( '%1$sTagged:%2$s %3$s', 'xsimply-cp'),
+						'<span class="tag-label">',
+						'</span>',
+						wp_kses( $tags_list, array('a' => ['href' => [], 'rel' => [] ] ) ),
+					)
+				);
+			
 			}
 		}
 
@@ -174,11 +182,10 @@ if( ! function_exists('xsimply_get_my_site_cp') ) :
 		array( 
 			'&copy;', gmdate('Y'), get_bloginfo('name')
 		), $site_cp );
-		$filtered = xsimply_html_filter( $string );
-		$output = nl2br( $filtered );
 
-		printf( '<div class="my-site-cp"><p>%s</p></div>', $output ); // phpcs:ignore Standard.Category.SniffName.ErrorCode
-
+		printf( '<div class="my-site-cp"><p>%s</p></div>', 
+			nl2br( xsimply_html_filter( $string ) )
+		);
 	}
 endif;
 
