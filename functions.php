@@ -72,13 +72,15 @@ if ( ! function_exists( 'xsimply_setup' ) ) :
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		if ( ! function_exists( 'classicpress_version' ) || version_compare( classicpress_version(), '2', '<' ) ) {
+			add_theme_support( 'html5', array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			) );
+		}
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'xsimply_custom_background_args', array(
@@ -100,14 +102,14 @@ if ( ! function_exists( 'xsimply_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-		
+
 		/**
 		 * Add editor style
-		 * 
+		 *
 		 * @link https://developer.wordpress.org/reference/functions/add_editor_style/
 		 */
 		add_editor_style( trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css' );
-		
+
 		/**
 		 * Add Custom font to editor style
 		 */
@@ -161,8 +163,8 @@ function xsimply_set_tag_cloud_font_size($args) {
 	// normalize size
     $args['smallest'] = 14; /* Set the smallest size to 14px */
 	$args['largest'] = 14;  /* set the largest size to 14px */
-	
-    return $args; 
+
+    return $args;
 }
 add_filter('widget_tag_cloud_args','xsimply_set_tag_cloud_font_size');
 
@@ -183,7 +185,7 @@ function xsimply_scripts() {
 		$url   = esc_url( "https://fonts.googleapis.com/css?family={$font}:400,400i,700,700i&display=swap" );
 		wp_enqueue_style( "xsimply-{$tag}", "{$url}");
 	}
-	
+
 	// get main style
 	wp_enqueue_style( 'xsimply-style', get_stylesheet_uri() );
 
@@ -193,10 +195,10 @@ function xsimply_scripts() {
 	}
 	elseif( get_theme_mod( 'xsimply_theme_color' ) === 'pig' ) {
 		wp_enqueue_style( 'xsimply-pig', get_template_directory_uri() . '/css/pig.css' );
-	} 
+	}
 	elseif( get_theme_mod( 'xsimply_theme_color' ) === 'sea' ) {
 		wp_enqueue_style( 'xsimply-sea', get_template_directory_uri() . '/css/sea.css' );
-	} 
+	}
 	elseif( get_theme_mod( 'xsimply_theme_color') === 'night' ) {
 		wp_enqueue_style( 'xsimply-night', get_template_directory_uri() . '/css/night.css' );
 	}
@@ -219,14 +221,14 @@ add_action( 'wp_enqueue_scripts', 'xsimply_scripts' );
  * Add inline css rules for xsimply theme
  */
 function xsimply_inline_css() {
-	
+
 	// an empty array to transport css rules
 	$xsimply_css_rules = array();
-	
+
 	// add typography
 	$selected_font = get_theme_mod( 'xsimply_typography_choices', 'titillium_web' );
 	$fonts = xsimply_fonts();
-	
+
 	if( $selected_font !== 'system_ui' ) {
 		$font = sanitize_text_field( $fonts[$selected_font] );
 		$fs = '';
@@ -235,13 +237,13 @@ function xsimply_inline_css() {
 		}
 		$xsimply_css_rules[] = "body { font-family: \"{$font}\";{$fs} }";
 	}
-	
-	// get current layout wide 
+
+	// get current layout wide
 	$wide = get_theme_mod( 'xsimply_theme_layout_wide', 'normal' );
 	if( $wide !== 'normal' && $wide !== 'thin' ) {
 		$xsimply_css_rules[] = "div#page { width: 100%; padding: 0 40px; box-sizing: border-box;}";
 	}
-	
+
 	if( $wide === 'thin' ) {
 		/** 57.2390572391% = 680px **/
 		$xsimply_css_rules[] = "div#page { width: 57.2390572391%; padding: 0 40px; box-sizing: border-box;}";
@@ -254,7 +256,7 @@ function xsimply_inline_css() {
 	$alignment = get_theme_mod( 'xsimply_theme_layout_align', 'center' );
 	if( $alignment !== 'center' ) {
 		switch( $alignment ) {
-			case 'left' : 
+			case 'left' :
 				$xsimply_css_rules[] = "div#page { margin-left: 0; padding-left: 40px; }";
 			break;
 			case 'right' :
@@ -264,14 +266,14 @@ function xsimply_inline_css() {
 				$xsimply_css_rules[] = "div#page { margin-left: 0; padding-left: 40px; }";
 		}
 	}
-	
+
 	// align header image
 	$header_image_align = get_theme_mod( 'xsimply_center_image_header', 0 );
 	$has_fixed_header = get_theme_mod( 'xsimply_fixed_image_header', 0 );
 	if( (bool) $header_image_align === true  ) {
 		$xsimply_css_rules[] = '.custom-header{text-align:center;}';
 	}
-	
+
 	// align menu
 	$menu_align = get_theme_mod( 'xsimply_theme_layout_menu_align', 'left' );
 	if( $menu_align !== 'left' ) {
@@ -284,10 +286,10 @@ function xsimply_inline_css() {
 			break;
 		}
 	}
-	
+
 	// get current theme color
 	$theme_color = get_theme_mod( 'xsimply_theme_color', 'light' );
-	
+
 	/**
 	 * Customize header text and background
 	 */
@@ -296,28 +298,28 @@ function xsimply_inline_css() {
 	if( get_background_color() && (bool) $customize_active === false ) {
 		if( in_array( $theme_color, array_keys( xsimply_color_scheme() ) ) ) {
 			switch( $theme_color ) {
-				case 'light' : 
-					$bg_color   = '#FFFFFF'; 
+				case 'light' :
+					$bg_color   = '#FFFFFF';
 					$link_color = '#505050';
 					$link_hover = '#000000';
 					break;
-				case 'metal' : 
-					$bg_color   = '#DAD9D9'; 
+				case 'metal' :
+					$bg_color   = '#DAD9D9';
 					$link_color = '#505050';
 					$link_hover = '#0C0C0C';
 					break;
-				case 'pig'   : 
-					$bg_color   = '#EABDBD'; 
+				case 'pig'   :
+					$bg_color   = '#EABDBD';
 					$link_color = '#D86464';
 					$link_hover = '#B12B2B';
 					break;
-				case 'sea'   : 
-					$bg_color   = '#213142'; 
+				case 'sea'   :
+					$bg_color   = '#213142';
 					$link_color = '#D3DEEC';
 					$link_hover = '#1DA1F2';
 					break;
-				case 'night' : 
-					$bg_color   = '#000000'; 
+				case 'night' :
+					$bg_color   = '#000000';
 					$link_color = '#ABABAB';
 					$link_hover = '#E4E4E4';
 					break;
@@ -332,9 +334,9 @@ function xsimply_inline_css() {
 			$xsimply_css_rules[] = "a, a:visited, .site-title a, .site-description { color: {$link_color}; }";
 			$xsimply_css_rules[] = "a:hover { color: {$link_hover}; }";
 		}
-	
+
 	}
-	
+
 	/**
 	 * Semi-transparent background
 	 */
@@ -354,7 +356,7 @@ function xsimply_inline_css() {
 		$xsimply_css_rules[] = ".site { background-color: {$bgcolor}; padding: 20px 40px; box-sizing: content-box; }";
 		$xsimply_css_rules[] = '.widget-area { width: 38%; padding-right: 0; }';
 	}
-	
+
 	if( !empty( $xsimply_css_rules ) ) {
 		$xsimply_css_rules_string = implode( PHP_EOL, $xsimply_css_rules );
 		echo '<style type="text/css" id="xsimply-inline-css">';
@@ -370,9 +372,9 @@ add_action('wp_head', 'xsimply_inline_css', 9999 );
 function xsimply_attachment_has_post_parent() {
 	global $post;
 
-	if(  $post->post_parent > 0 ) 
+	if(  $post->post_parent > 0 )
 		return true;
-	
+
 	return false;
 }
 
