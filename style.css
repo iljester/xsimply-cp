@@ -1395,7 +1395,6 @@ a.post-thumbnail {
 }
 
 .comment-list li .comment-meta {
-    margin-top: -36px;
     margin-bottom: 20px;
     background-color: #fff;
     display: table;
@@ -1440,9 +1439,6 @@ a.post-thumbnail {
     text-align: left;
     width: 100%;
     white-space: nowrap;
-    position: absolute;
-    left: 0;
-    top: 58px;
 }
 
 .comment-list li .comment-metadata a {
@@ -1627,8 +1623,8 @@ a.post-thumbnail {
 
 .comment-respond .comment-reply-title a {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 0px;
+    top: -45px;
     color: red;
     border-bottom: 0 none;
     padding: 5px 20px;
