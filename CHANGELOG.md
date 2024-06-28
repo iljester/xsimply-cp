@@ -1,5 +1,13 @@
 # CHANGELOG XSIMPLY CP
 
+Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+
+## Version 1.2.6
+*Released 28/06/2024*
+- Removed switch default core markup for search form, comment form, and comments
+to output valid HTML5. No need in ClassicPress
+
 ## Version 1.2.5
 *Released 28/06/2024*
 - Fix bugs

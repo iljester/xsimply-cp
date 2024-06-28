@@ -23,7 +23,7 @@ define('XSIMPLY_CMS_LINK', 'https://classicpress.net/');
  * Define version
  * For any use
  */
-define('XSIMPLY_VER', '1.2.5');
+define('XSIMPLY_VER', '1.2.6');
 
 /**
  * xsimply setup
@@ -66,18 +66,6 @@ if ( ! function_exists( 'xsimply_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'xsimply-cp' ),
-		) );
-
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
 		) );
 
 		// Set up the WordPress core custom background feature.
